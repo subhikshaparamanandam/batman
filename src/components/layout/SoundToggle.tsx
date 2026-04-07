@@ -68,14 +68,14 @@ export default function SoundToggle() {
       </div>
 
       {isMounted && (
-        <div className="fixed -z-50 w-0 h-0 opacity-0 overflow-hidden pointer-events-none">
+        <div className="fixed -bottom-[2000px] -left-[2000px] opacity-0 pointer-events-none">
           <ReactPlayer 
             url="https://www.youtube.com/watch?v=mprNntAIT5M"
             playing={isPlaying}
             loop={true}
             volume={0.8}
-            width="0"
-            height="0"
+            width="200"
+            height="200"
             config={{
               youtube: {
                 playerVars: { 
