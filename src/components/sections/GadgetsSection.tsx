@@ -77,8 +77,9 @@ function GadgetCard({ gadget }: { gadget: typeof gadgets[0] }) {
 
 export default function GadgetsSection() {
   return (
-    <section className="relative py-24 px-4 bg-black overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-32 px-4 bg-transparent overflow-hidden backdrop-blur-md">
+      <div className="absolute inset-0 bg-black/50 z-0 pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 px-4">
           <motion.p
             initial={{ opacity: 0, y: 20 }}

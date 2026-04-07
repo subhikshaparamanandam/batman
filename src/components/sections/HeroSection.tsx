@@ -11,11 +11,10 @@ import { motion } from 'framer-motion';
 
 export default function HeroSection({ onEnter }: { onEnter: () => void }) {
   return (
-    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-black">
+    <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-transparent">
       {/* 3D Scene */}
-      <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 5, 20], fov: 45 }}>
-          <color attach="background" args={['#000']} />
+      <div className="absolute inset-0 z-0 opacity-80 mix-blend-screen pointer-events-none">
+        <Canvas camera={{ position: [0, 5, 20], fov: 45 }} gl={{ alpha: true }}>
           <Suspense fallback={null}>
             <GothamSkyline />
             <BatSignal />

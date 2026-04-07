@@ -30,12 +30,12 @@ export default function Home() {
   };
 
   return (
-    <main className="relative min-h-screen bg-black">
+    <main className="relative min-h-screen bg-transparent">
       <AnimatePresence>
         {isLoading && (
           <motion.div
             key="loader"
-            className="fixed inset-0 z-[200] bg-black flex flex-col items-center justify-center p-4"
+            className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center p-4"
             exit={{ opacity: 0, scale: 1.1 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >

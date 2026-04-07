@@ -15,7 +15,7 @@ const textLines = [
 
 export default function AboutSection() {
   return (
-    <section className="relative min-h-[70vh] w-full flex items-center justify-center py-24 px-4 bg-gradient-to-b from-black to-blue-950/20 overflow-hidden">
+    <section className="relative min-h-[70vh] w-full flex items-center justify-center py-32 px-4 bg-gradient-to-b from-transparent via-black/40 to-black/70 backdrop-blur-sm overflow-hidden">
       {/* Background Fog (CSS Animation) */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-1/4 left-0 w-full h-1/2 bg-white/5 blur-[100px] animate-pulse" />

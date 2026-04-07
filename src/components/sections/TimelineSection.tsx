@@ -12,8 +12,8 @@ const events = [
 
 export default function TimelineSection() {
   return (
-    <section className="relative py-24 px-4 bg-black overflow-hidden">
-      <div className="max-w-4xl mx-auto">
+    <section className="relative py-48 px-4 bg-gradient-to-b from-black/60 to-transparent backdrop-blur-md overflow-hidden">
+      <div className="max-w-4xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-6xl font-black uppercase italic text-white text-center mb-24">The Legend's Arc</h2>
         
         <div className="relative border-l border-white/10 ml-4 md:ml-0 md:pl-20 py-10 space-y-24">

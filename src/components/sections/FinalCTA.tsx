@@ -16,8 +16,9 @@ export default function FinalCTA() {
   };
 
   return (
-    <footer className="relative py-24 bg-black border-t border-white/5 overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center px-4">
+    <footer className="relative py-32 bg-transparent border-t border-white/5 overflow-hidden backdrop-blur-lg">
+      <div className="absolute inset-0 bg-black/40 z-0 pointer-events-none" />
+      <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
         <motion.div
            initial={{ opacity: 0, y: 50 }}
            whileInView={{ opacity: 1, y: 0 }}

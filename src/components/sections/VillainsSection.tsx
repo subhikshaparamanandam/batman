@@ -78,8 +78,8 @@ function VillainCard({ villain }: { villain: typeof villains[0] }) {
 
 export default function VillainsSection() {
   return (
-    <section className="relative py-32 px-4 bg-black overflow-hidden border-t border-white/5">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative py-40 px-4 bg-black/60 overflow-hidden border-t border-white/5 backdrop-blur-lg">
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16 px-4">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
