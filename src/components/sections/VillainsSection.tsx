@@ -35,7 +35,7 @@ function VillainCard({ villain }: { villain: typeof villains[0] }) {
 
   return (
     <div
-      className="relative w-full aspect-[2/3] cursor-pointer perspective-1000"
+      className="relative w-full min-h-[450px] cursor-pointer perspective-1000 mt-8 md:mt-0"
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
     >
@@ -44,8 +44,7 @@ function VillainCard({ villain }: { villain: typeof villains[0] }) {
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         style={{ transformStyle: "preserve-3d" }}
       >
-        {/* Front Side */}
-        <div className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl border-2 ${villain.color} ${villain.bg} shadow-2xl flex flex-col justify-end p-8 overflow-hidden`}>
+        <div className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl border-2 ${villain.color} ${villain.bg} shadow-2xl flex flex-col justify-end p-6 overflow-hidden`}>
            {/* Abstract Pattern background placeholder */}
            <div className={`absolute top-0 right-0 w-full h-full opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]`} />
            
@@ -53,19 +52,19 @@ function VillainCard({ villain }: { villain: typeof villains[0] }) {
              className="relative z-10"
              animate={{ y: isFlipped ? 20 : 0, opacity: isFlipped ? 0 : 1 }}
            >
-              <h3 className={`text-4xl font-black uppercase italic mb-1 ${villain.color.replace('border-', 'text-')}`}>{villain.name}</h3>
-              <p className="text-white/40 font-mono text-sm tracking-widest">{villain.alias}</p>
+              <h3 className={`text-3xl font-black uppercase italic mb-1 ${villain.color.replace('border-', 'text-')}`}>{villain.name}</h3>
+              <p className="text-white/50 font-mono text-xs tracking-widest">{villain.alias}</p>
            </motion.div>
         </div>
 
         {/* Back Side */}
         <div 
-          className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl border-2 ${villain.color} ${villain.bg} bg-black/90 p-8 flex flex-col justify-center items-center text-center`}
-          style={{ transform: "rotateY(180) translateZ(10px)" }}
+          className={`absolute inset-0 w-full h-full backface-hidden rounded-2xl border-2 ${villain.color} ${villain.bg} bg-black/95 p-6 flex flex-col justify-center items-center text-center`}
+          style={{ transform: "rotateY(180deg) translateZ(1px)" }}
         >
           <div className="relative z-10">
             <h3 className={`text-2xl font-black uppercase mb-4 ${villain.color.replace('border-', 'text-')}`}>{villain.name}</h3>
-            <p className="text-white/80 leading-relaxed text-lg">{villain.desc}</p>
+            <p className="text-white/80 leading-relaxed text-sm">{villain.desc}</p>
             <div className={`mt-8 w-12 h-1 bg-current mx-auto ${villain.color.replace('border-', 'text-')}`} />
           </div>
         </div>
@@ -79,7 +78,7 @@ function VillainCard({ villain }: { villain: typeof villains[0] }) {
 
 export default function VillainsSection() {
   return (
-    <section className="relative py-24 px-4 bg-black overflow-hidden">
+    <section className="relative py-32 px-4 bg-black overflow-hidden border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 px-4">
           <motion.p
@@ -93,7 +92,7 @@ export default function VillainsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl md:text-6xl font-black uppercase italic text-white"
+            className="text-5xl md:text-7xl font-black uppercase italic text-white"
           >
             Gotham's Worst
           </motion.h2>
