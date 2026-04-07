@@ -1,22 +1,21 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { Volume2, VolumeX } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import dynamic from 'next/dynamic';
-
-// Dynamically import ReactPlayer to avoid SSR hydration issues
-const ReactPlayer = dynamic(() => import('react-player/youtube'), { ssr: false });
 
 export default function SoundToggle() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const toggleSound = () => {
+    if (!audioRef.current) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(e => console.error("Audio playback blocked by browser:", e));
+    }
     setIsPlaying(!isPlaying);
   };
 
@@ -67,29 +66,13 @@ export default function SoundToggle() {
         )}
       </div>
 
-      {isMounted && (
-        <div className="fixed -bottom-[2000px] -left-[2000px] opacity-0 pointer-events-none">
-          <ReactPlayer 
-            url="https://www.youtube.com/watch?v=mprNntAIT5M"
-            playing={isPlaying}
-            loop={true}
-            volume={0.8}
-            width="200"
-            height="200"
-            config={{
-              youtube: {
-                playerVars: { 
-                  showinfo: 0,
-                  controls: 0,
-                  origin: typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'
-                }
-              }
-            }}
-            onPlay={() => console.log('Batman theme playing')}
-            onError={(e) => console.log('ReactPlayer Error:', e)}
-          />
-        </div>
-      )}
+      {/* NATIVE HTML5 AUDIO (100% ROBUST & CORS FREE) */}
+      <audio 
+        ref={audioRef} 
+        src="https://actions.google.com/sounds/v1/science_fiction/dark_matter.ogg" 
+        loop 
+        className="hidden" 
+      />
     </>
   );
 }
