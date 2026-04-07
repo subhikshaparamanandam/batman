@@ -69,7 +69,7 @@ export default function SoundToggle() {
       {/* NATIVE HTML5 AUDIO (100% ROBUST & CORS FREE) */}
       <audio 
         ref={audioRef} 
-        src="https://actions.google.com/sounds/v1/science_fiction/dark_matter.ogg" 
+        src="/theme.mp3" 
         loop 
         className="hidden" 
       />
