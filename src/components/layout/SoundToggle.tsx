@@ -65,7 +65,7 @@ export default function SoundToggle() {
         )}
       </div>
 
-      <div className="hidden absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none">
+      <div className="fixed -z-50 w-0 h-0 overflow-hidden opacity-0 pointer-events-none">
         <YouTube 
           videoId="mprNntAIT5M" 
           opts={{ height: '0', width: '0', playerVars: { autoplay: 0, loop: 1, playlist: 'mprNntAIT5M' } }} 
